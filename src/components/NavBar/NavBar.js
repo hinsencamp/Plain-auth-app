@@ -1,10 +1,45 @@
 import React, { useContext } from "react";
-import { Popover, Button, Menu, Position, Avatar } from "evergreen-ui";
+import {
+  Popover,
+  Pane,
+  Text,
+  Menu,
+  Button,
+  Position,
+  Avatar
+} from "evergreen-ui";
 import { Link } from "react-router-dom";
 
 import { firebaseContext } from "../../context/firebase";
 
 import "./style.scss";
+
+function InviteMember() {
+  return (
+    <Popover
+      position={Position.BOTTOM_LEFT}
+      content={
+        <Pane
+          padding={20}
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          flexDirection="column"
+        >
+          <Text>
+            To invite someone to the roundtable you can share your private
+            invitation link:
+          </Text>
+          {/* Links can finally added when URL is known */}
+        </Pane>
+      }
+    >
+      <Button marginRight={16} appearance="minimal" intent="success">
+        Invite a Member
+      </Button>
+    </Popover>
+  );
+}
 
 function UserDropDown() {
   const firebase = useContext(firebaseContext);
@@ -53,6 +88,9 @@ function NavBar() {
             <li>
               <Link to="/sign-up">Sign Up</Link>
             </li>
+            {/* <li>
+              <InviteMember></InviteMember>
+            </li> */}
             <li className="avatar">
               <UserDropDown></UserDropDown>
             </li>

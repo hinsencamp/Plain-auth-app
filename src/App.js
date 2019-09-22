@@ -6,6 +6,7 @@ import Dashboard from "./components/Dashboard";
 import Navbar from "./components/NavBar";
 
 import Sign from "./views/Sign";
+import Event from "./views/Event";
 
 import Authentication from "./hoc/auth";
 
@@ -29,7 +30,10 @@ function App() {
             <Home>
               <Route
                 component={({ match }) => (
-                  <Route path="/" component={Dashboard} />
+                  <>
+                    <Route exact path="/" component={Dashboard}></Route>
+                    <Route path="/event/:id" component={Event} />
+                  </>
                 )}
               />
             </Home>

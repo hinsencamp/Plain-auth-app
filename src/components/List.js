@@ -1,35 +1,10 @@
 import React, { useContext, useState, useEffect } from "react";
-import { Pane, Heading, Text, Paragraph } from "evergreen-ui";
+import { Pane, Heading, Text, Paragraph, Button } from "evergreen-ui";
+import { Link } from "react-router-dom";
+
+import helpers from "../helpers";
 
 import { firebaseContext } from "../context/firebase";
-
-function timeConverter(UNIX_timestamp) {
-  var a = new Date(UNIX_timestamp * 1000);
-  var months = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec"
-  ];
-  var year = a.getFullYear();
-  var month = months[a.getMonth()];
-  var date = a.getDate();
-  var hour = a.getHours();
-  var min = a.getMinutes();
-
-  min = min === 0 ? "00" : "0";
-
-  var time = hour + ":" + min + ", " + date + " " + month + " " + year;
-  return time;
-}
 
 function List() {
   const firebase = useContext(firebaseContext);
@@ -40,7 +15,12 @@ function List() {
     firebase.db.collection("events").onSnapshot(
       snapshot => {
         const events = snapshot.docs.map(doc => {
-          return doc.data();
+          const data = doc.data();
+          return {
+            ...data,
+            id: doc.id,
+            Date: helpers.timeConverter(data.Date.seconds)
+          };
         });
         setEvents(events);
       },
@@ -66,10 +46,12 @@ function List() {
                 <Heading size={700} marginTop={0}>
                   {event.Name}
                 </Heading>
-                <Text color="muted">{timeConverter(event.Date.seconds)}</Text>
+                <Text color="muted">{event.Date}</Text>
                 <Paragraph size={300} marginTop="default">
                   {event.Description}
                 </Paragraph>
+
+                <Link to={`event/:${event.id}`}>...join</Link>
               </Pane>
             </li>
           );
