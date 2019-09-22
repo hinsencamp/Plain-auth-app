@@ -36,6 +36,7 @@ function List() {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
+    console.log("fetch data");
     firebase.db.collection("events").onSnapshot(
       snapshot => {
         const events = snapshot.docs.map(doc => {

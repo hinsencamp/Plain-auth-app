@@ -3,9 +3,9 @@ import { HashRouter as Router, Route, Switch } from "react-router-dom";
 
 import { FirebaseProvider } from "./context/firebase";
 import Dashboard from "./components/Dashboard";
-import SignUp from "./components/SignUp";
-import SignIn from "./components/SignIn";
 import Navbar from "./components/NavBar";
+
+import Sign from "./views/Sign";
 
 import Authentication from "./hoc/auth";
 
@@ -23,8 +23,8 @@ function App() {
     <FirebaseProvider>
       <Router>
         <Switch>
-          <Route path="/sign-in" component={SignIn} />
-          <Route path="/sign-up" component={SignUp} />
+          <Route path="/sign-in" component={Sign.in} />
+          <Route path="/sign-up" component={Sign.up} />
           <Authentication>
             <Home>
               <Route
