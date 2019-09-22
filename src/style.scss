@@ -18,10 +18,15 @@ body {
 
 ul {
   list-style-type: none;
+  padding-left: 0px;
 }
 
 html,
 #root {
   height: 100%;
   overflow: hidden;
+}
+
+.react-add-to-calendar__dropdown {
+  display: flex;
 }

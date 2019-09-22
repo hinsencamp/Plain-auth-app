@@ -17,7 +17,6 @@ function Authentication(props) {
     return firebase.auth.onAuthStateChanged(user => {
       if (user) {
         // allow access
-        console.log("user login");
       } else {
         // not allowed.
         setForceRedirect(true);

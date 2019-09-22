@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Pane, Heading } from "evergreen-ui";
 import SignIn from "./Form/in";
 import SignUp from "./Form/up";
 import Form from "./Form/Form";
@@ -12,6 +12,9 @@ function Sign(props) {
 
 Sign.in = () => (
   <Sign>
+    <Heading size={900} marginBottom={30}>
+      The Roundtable (Beta)
+    </Heading>
     <Form redirectPath="/">
       <SignIn />
     </Form>
@@ -19,6 +22,9 @@ Sign.in = () => (
 );
 Sign.up = () => (
   <Sign>
+    <Heading size={900} marginBottom={30}>
+      The Roundtable (Beta)
+    </Heading>
     <Form>
       <SignUp />
     </Form>

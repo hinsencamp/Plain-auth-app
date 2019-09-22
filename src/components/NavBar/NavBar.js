@@ -81,13 +81,11 @@ function NavBar() {
     <section className="navigation">
       <div className="nav-container">
         <div className="brand">
-          <Link to="/">Logo</Link>
+          <Link to="/">The Roundtable (Beta)</Link>
         </div>
         <nav>
           <ul className="nav-list">
-            <li>
-              <Link to="/sign-up">Sign Up</Link>
-            </li>
+            <li>{/* <Link to="/sign-up">Sign Up</Link> */}</li>
             {/* <li>
               <InviteMember></InviteMember>
             </li> */}

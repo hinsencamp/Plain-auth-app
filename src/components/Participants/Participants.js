@@ -4,20 +4,20 @@ import { Pane, Heading, Text, Paragraph, Button, Avatar } from "evergreen-ui";
 import "./style.scss";
 
 function Participants(props) {
-  const [participants, setParticipants] = useState(
-    Array.apply(null, Array(props.maxMembers)).map(() => {
-      return {};
-    })
-  );
+  const [participants, setParticipants] = useState([]);
 
   useEffect(() => {
-    let newPar = [...participants];
+    let newPar = Array.apply(null, Array(props.maxMembers)).map(() => {
+      return {};
+    });
+
     props.members &&
       props.members.forEach((participant, index) => {
         newPar[index] = participant;
       });
+
     setParticipants(newPar);
-  }, []);
+  }, [props.members]);
 
   return (
     <Pane display="flex">

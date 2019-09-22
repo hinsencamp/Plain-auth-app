@@ -1,4 +1,6 @@
 import React, { useContext, useState } from "react";
+import { Link } from "react-router-dom";
+
 import {
   FormField,
   TextInput,
@@ -16,9 +18,10 @@ function SignIn(props) {
       flexDirection="column"
       border="default"
       width={440}
+      elevation={2}
     >
       <Heading size={600} flex={1} padding={16}>
-        Login
+        Sign In
       </Heading>
       <FormField
         display="flex"
@@ -52,7 +55,13 @@ function SignIn(props) {
           }
         />
       </FormField>
-      <Pane background="tint2" padding={10}>
+      <Pane
+        background="tint2"
+        padding={10}
+        display="flex"
+        justifyContent="space-between"
+        alignItems="center"
+      >
         <Button
           appearance="primary"
           marginLeft={8}
@@ -62,6 +71,7 @@ function SignIn(props) {
         >
           Login
         </Button>
+        <Link to="/sign-up">Sign Up</Link>
       </Pane>
     </Pane>
   );

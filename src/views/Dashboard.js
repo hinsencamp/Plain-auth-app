@@ -1,5 +1,5 @@
 import React from "react";
-import List from "./List";
+import List from "../components/List";
 
 function Dashboard(props) {
   return (
