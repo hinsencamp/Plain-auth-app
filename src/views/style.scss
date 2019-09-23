@@ -1,3 +1,5 @@
+@import "~global.scss";
+
 .login {
   display: flex;
   justify-content: center;
@@ -7,5 +9,10 @@
 
   a {
     font-size: 12px;
+  }
+
+  @media (min-width: $phone-upper-boundary) {
+    justify-content: flex-start;
+    margin-top: 50px;
   }
 }

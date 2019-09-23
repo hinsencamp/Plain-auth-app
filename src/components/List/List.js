@@ -6,6 +6,8 @@ import helpers from "../../helpers";
 
 import { firebaseContext } from "../../context/firebase";
 
+import "./style.scss";
+
 function List() {
   const firebase = useContext(firebaseContext);
   const [events, setEvents] = useState([]);

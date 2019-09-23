@@ -1,0 +1,8 @@
+@import "~global.scss";
+
+.event-list {
+  @media (min-width: $phone-upper-boundary) {
+    margin: 0px 20px;
+    background: blue;
+  }
+}
