@@ -2,7 +2,7 @@ import React from "react";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 
 import { FirebaseProvider } from "./context/firebase";
-import Dashboard from "./components/Dashboard";
+import Dashboard from "./views/Dashboard";
 import Navbar from "./components/NavBar";
 
 import Sign from "./views/Sign";

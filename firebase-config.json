@@ -1,9 +1,9 @@
 {
-  "apiKey": "AIzaSyBRhFNsyvLZAEi_lj_pwhrpinRtMlF3Efo",
-  "authDomain": "visionary-roundtable.firebaseapp.com",
-  "databaseURL": "https://visionary-roundtable.firebaseio.com",
-  "projectId": "visionary-roundtable",
-  "storageBucket": "visionary-roundtable.appspot.com",
-  "messagingSenderId": "234814710260",
-  "appId": "1:234814710260:web:2887e4202c1f4ca5c119a1"
+  "apiKey": "AIzaSyBnPULDPZq8WK_7QF1_qJYwDcKYOFAY9hg",
+  "authDomain": "publish4dev.firebaseapp.com",
+  "projectId": "publish4dev",
+  "storageBucket": "publish4dev.appspot.com",
+  "messagingSenderId": "284654895617",
+  "appId": "1:284654895617:web:6779d3d2bc22fd41293600",
+  "measurementId": "G-DENHJXBPWZ"
 }

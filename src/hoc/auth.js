@@ -14,7 +14,7 @@ function Authentication(props) {
   }, []);
 
   function checkStateChange() {
-    return firebase.auth.onAuthStateChanged(user => {
+    return firebase.auth.onAuthStateChanged((user) => {
       if (user) {
         // allow access
         console.log("user login");
@@ -29,7 +29,7 @@ function Authentication(props) {
     <Redirect
       to={{
         pathname: "/sign-in",
-        state: { referrer: props.location.pathname }
+        state: { referrer: props.location.pathname },
       }}
       push={true}
     />

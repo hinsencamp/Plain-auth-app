@@ -1,12 +1,7 @@
 import React from "react";
-import List from "./List";
 
 function Dashboard(props) {
-  return (
-    <div>
-      <List />
-    </div>
-  );
+  return <div className={"view"}>Dashboard</div>;
 }
 
 export default Dashboard;

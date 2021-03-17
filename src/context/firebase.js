@@ -1,7 +1,11 @@
 import React, { createContext } from "react";
 import PropTypes from "prop-types";
 
-import * as firebase from "firebase";
+import firebase from "firebase/app";
+
+import "firebase/auth";
+import "firebase/firestore";
+import "firebase/functions";
 
 import firebaseConfig from "../../firebase-config.json";
 
@@ -11,15 +15,15 @@ function withFirebase(Component) {
   function WithFirebase(props) {
     return (
       <Context.Consumer>
-        {firebase => <Component {...props} firebase={firebase} />}
+        {(firebase) => <Component {...props} firebase={firebase} />}
       </Context.Consumer>
     );
   }
   withFirebase.WrappedComponent = Component;
 
-  withFirebase.displayName = `WithFirebase(${Component.displayName ||
-    Component.name ||
-    "Component"})`;
+  withFirebase.displayName = `WithFirebase(${
+    Component.displayName || Component.name || "Component"
+  })`;
 
   return WithFirebase;
 }
@@ -34,13 +38,18 @@ class FireBase {
 }
 
 function FirebaseProvider(props) {
-  const firebaseClass = new FireBase(firebaseConfig);
+  let firebaseClass;
+
+  if (!firebaseClass) {
+    firebaseClass = new FireBase(firebaseConfig);
+  }
+
   return (
     <Context.Provider
       value={{
         auth: firebaseClass.auth,
         db: firebaseClass.db,
-        functions: firebaseClass.functions
+        functions: firebaseClass.functions,
       }}
     >
       {props.children}
@@ -49,7 +58,7 @@ function FirebaseProvider(props) {
 }
 
 FirebaseProvider.propTypes = {
-  children: PropTypes.object
+  children: PropTypes.object,
 };
 
 const firebaseContext = Context;
